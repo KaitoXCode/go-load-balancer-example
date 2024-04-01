@@ -5,6 +5,7 @@ import (
 	"net/url"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/logger"
 )
 
 type WebApp struct {
@@ -39,6 +40,7 @@ func main() {
 	web := &WebApp{}
 	web.Config = setupConfigs()
 	web.App = fiber.New()
+	web.App.Use(logger.New())
 	web.setupRoutes()
 	web.App.Listen(web.Config.Port)
 	fmt.Printf("[WEB] [*] Listening on port{%s}...", web.Config.Port)
