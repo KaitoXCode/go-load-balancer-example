@@ -30,3 +30,17 @@ services:
     ports:
       - "6971:6971"
     restart: always
+  lb:
+    environment:
+      - ROOT_DIR=/app/lb/
+      - PORT=:7070
+    build:
+      context: .
+      dockerfile: Dockerfile.lb
+    ports:
+      - "7070:7070"
+    depends_on:
+      - web69
+      - web70
+      - web71
+    restart: always
