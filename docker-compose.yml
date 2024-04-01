@@ -1,0 +1,32 @@
+version: '3'
+services:
+  web69:
+    environment:
+      - ROOT_DIR=/app/web/
+      - PORT=:6969
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - "6969:6969"
+    restart: always
+  web70:
+    environment:
+      - ROOT_DIR=/app/web/
+      - PORT=:6970
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - "6970:6970"
+    restart: always
+  web71:
+    environment:
+      - ROOT_DIR=/app/web/
+      - PORT=:6971
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - "6971:6971"
+    restart: always
